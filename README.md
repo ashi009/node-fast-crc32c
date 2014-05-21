@@ -17,11 +17,11 @@ other tabled based CRC-32._
 
 **Benchmark**
 
-The 3 implementations are:
+The 3 tested implementations are:
 
-- sse4\_crc32c Hardware accelerated CRC-32C from [sse4_crc32](sse4_crc32)
-- js_crc32c Javascript implemented CRC-32C
-- js_crc32 Javascript implemented CRC-32 from [buffer-crc32](buffer-crc32)
+- **sse4\_crc32c** Hardware accelerated CRC-32C from [sse4_crc32](sse4_crc32)
+- **js_crc32c** Javascript implemented CRC-32C
+- **js_crc32** Javascript implemented CRC-32 from [buffer-crc32](buffer-crc32)
 
 ```
 $ node benchmark

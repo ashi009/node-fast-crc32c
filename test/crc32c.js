@@ -5,7 +5,7 @@ sets.buffer.tests.forEach(function(test) {
 });
 
 describe('crc32c.js', function() {
-  describe('calculate()', testCalculate(require('../crc32c.js')));
+  describe('calculate()', testCalculate(require('../impls/js_crc32c')));
 });
 
 describe('fast-crc32c', function() {

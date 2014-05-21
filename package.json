@@ -14,7 +14,8 @@
     "sse4_crc32": "^2.0.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "benchmark": "node benchmark"
   },
   "keywords": [
     "crc",

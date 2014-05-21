@@ -1,7 +1,7 @@
 # fast-crc32c [![NPM version](https://badge.fury.io/js/fast-crc32c.png)](http://badge.fury.io/js/fast-crc32c) [![Build Status](https://travis-ci.org/ashi009/node-fast-crc32c.svg?branch=master)](https://travis-ci.org/ashi009/node-fast-crc32c)
 
 fast-crc32c is a CRC-32C algorithm implementation for node.js, which uses
-hardware acceleration (via [voxer/sse4_crc32](sse4_crc32) by Anand Suresh), and
+hardware acceleration (via [voxer/sse4_crc32][sse4_crc32] by Anand Suresh), and
 fallback to software implementation when hardware acceleration fails.
 
 ## Performance
@@ -19,9 +19,9 @@ other tabled based CRC-32._
 
 The 3 tested implementations are:
 
-- **sse4\_crc32c** Hardware accelerated CRC-32C from [sse4_crc32](sse4_crc32)
+- **sse4\_crc32c** Hardware accelerated CRC-32C from [sse4_crc32][sse4_crc32]
 - **js_crc32c** Javascript implemented CRC-32C
-- **js_crc32** Javascript implemented CRC-32 from [buffer-crc32](buffer-crc32)
+- **js_crc32** Javascript implemented CRC-32 from [buffer-crc32][buffer-crc32]
 
 ```
 $ node benchmark

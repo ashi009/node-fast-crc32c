@@ -43,7 +43,7 @@
       ]
     },
     "travis-cov": {
-      "threshold": 90
+      "threshold": 80
     }
   }
 }

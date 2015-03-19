@@ -29,11 +29,12 @@
     "sse4.2"
   ],
   "devDependencies": {
-    "benchtable": "*",
+    "benchtable": "^0.0.4",
     "blanket": "*",
-    "mocha": "*",
+    "mocha": "<2.0.0",
     "should": "*",
-    "travis-cov": "*"
+    "travis-cov": "*",
+    "buffer-crc32": "*"
   },
   "config": {
     "blanket": {

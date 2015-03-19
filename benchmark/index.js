@@ -8,7 +8,7 @@ var kTesters = [{
   calculate: require('sse4_crc32').calculate
 }, {
   name: 'js_crc32c',
-  calculate: require('../crc32c').calculate
+  calculate: require('../impls/js_crc32c').calculate
 }, {
   name: 'js_crc32',
   calculate: require('buffer-crc32').unsigned

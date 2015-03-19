@@ -12,7 +12,7 @@
     "node": ">= 0.8.0"
   },
   "optionalDependencies": {
-    "sse4_crc32": "^2.0.0"
+    "sse4_crc32": "^3.0.0"
   },
   "scripts": {
     "test": "mocha",

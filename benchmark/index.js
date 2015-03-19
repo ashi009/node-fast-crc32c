@@ -4,8 +4,11 @@ var Benchtable = require('benchtable');
 var suite = new Benchtable();
 
 var kTesters = [{
-  name: 'sse4_crc32c',
-  calculate: require('sse4_crc32').calculate
+  name: 'sse4_crc32c_hw',
+  calculate: require('../impls/sse4_crc32c_hw').calculate
+}, {
+  name: 'sse4_crc32c_sw',
+  calculate: require('../impls/sse4_crc32c_sw').calculate
 }, {
   name: 'js_crc32c',
   calculate: require('../impls/js_crc32c').calculate

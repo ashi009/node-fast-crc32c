@@ -24,20 +24,20 @@ The 3 tested implementations are:
 - **js_crc32** Javascript implemented CRC-32 from [buffer-crc32][buffer-crc32]
 
 ```
-$ node benchmark
-sse4_crc32c for inputs 1024B x 2,958,062 ops/sec ±0.31% (95 runs sampled)
-sse4_crc32c for inputs 16723579B, avg 2041B x 240 ops/sec ±0.26% (90 runs sampled)
-js_crc32c for inputs 1024B x 359,336 ops/sec ±0.33% (95 runs sampled)
-js_crc32c for inputs 16723579B, avg 2041B x 22.31 ops/sec ±0.34% (42 runs sampled)
-js_crc32 for inputs 1024B x 224,722 ops/sec ±0.39% (101 runs sampled)
-js_crc32 for inputs 16723579B, avg 2041B x 14.10 ops/sec ±0.18% (40 runs sampled)
+$ npm run-script benchmark
+sse4_crc32c for inputs 1024B x 1,882,511 ops/sec ±0.91% (96 runs sampled)
+sse4_crc32c for inputs 16696054B, avg 2038B x 161 ops/sec ±0.80% (85 runs sampled)
+js_crc32c for inputs 1024B x 357,426 ops/sec ±1.09% (93 runs sampled)
+js_crc32c for inputs 16696054B, avg 2038B x 21.91 ops/sec ±1.64% (41 runs sampled)
+js_crc32 for inputs 1024B x 360,304 ops/sec ±0.94% (93 runs sampled)
+js_crc32 for inputs 16696054B, avg 2038B x 23.17 ops/sec ±0.49% (43 runs sampled)
 ```
 
-| Impl        | 1024B             | 16723579B, avg 2041B |
+| Impl        | 1024B             | 16696054B, avg 2038B |
 |:------------|------------------:|---------------------:|
-| sse4_crc32c | 2,958,062 ops/sec | 240 ops/sec          |
-| js_crc32c   | 359,336 ops/sec   | 22.31 ops/sec        |
-| js_crc32    | 224,722 ops/sec   | 14.10 ops/sec        |
+| sse4_crc32c | 1,882,511 ops/sec | 161 ops/sec          |
+| js_crc32c   | 357,426 ops/sec   | 21.91 ops/sec        |
+| js_crc32    | 360,304 ops/sec   | 23.17 ops/sec        |
 
 ## Install
 

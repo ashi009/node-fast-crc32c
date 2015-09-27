@@ -12,9 +12,6 @@ register width (64bit) instead of CRC-32's 8bit.
 When using hardware acceleration, CRC-32C is about 7x ~ 9x faster than software
 implemented CRC-32C.
 
-_Note: Current software implementation didn't reflect that. But no slower than
-other tabled based CRC-32._
-
 **Benchmark**
 
 The 3 tested implementations are:
@@ -25,19 +22,26 @@ The 3 tested implementations are:
 
 ```
 $ npm run-script benchmark
-sse4_crc32c for inputs 1024B x 1,882,511 ops/sec ±0.91% (96 runs sampled)
-sse4_crc32c for inputs 16696054B, avg 2038B x 161 ops/sec ±0.80% (85 runs sampled)
-js_crc32c for inputs 1024B x 357,426 ops/sec ±1.09% (93 runs sampled)
-js_crc32c for inputs 16696054B, avg 2038B x 21.91 ops/sec ±1.64% (41 runs sampled)
-js_crc32 for inputs 1024B x 360,304 ops/sec ±0.94% (93 runs sampled)
-js_crc32 for inputs 16696054B, avg 2038B x 23.17 ops/sec ±0.49% (43 runs sampled)
+
+> fast-crc32c@1.0.0 benchmark /Users/xiaoyi/Projects/node-fast-crc32c
+> node benchmark
+
+sse4_crc32c_hw for inputs 1024B x 2,356,905 ops/sec ±1.23% (94 runs sampled)
+sse4_crc32c_hw for inputs 16611508B, avg 2027B x 171 ops/sec ±0.54% (89 runs sampled)
+sse4_crc32c_sw for inputs 1024B x 987,415 ops/sec ±0.59% (98 runs sampled)
+sse4_crc32c_sw for inputs 16611508B, avg 2027B x 67.53 ops/sec ±0.62% (72 runs sampled)
+js_crc32c for inputs 1024B x 353,343 ops/sec ±0.62% (99 runs sampled)
+js_crc32c for inputs 16611508B, avg 2027B x 13.23 ops/sec ±4.79% (26 runs sampled)
+js_crc32 for inputs 1024B x 345,803 ops/sec ±0.56% (99 runs sampled)
+js_crc32 for inputs 16611508B, avg 2027B x 13.20 ops/sec ±3.96% (26 runs sampled)
 ```
 
-| Impl        | 1024B             | 16696054B, avg 2038B |
-|:------------|------------------:|---------------------:|
-| sse4_crc32c | 1,882,511 ops/sec | 161 ops/sec          |
-| js_crc32c   | 357,426 ops/sec   | 21.91 ops/sec        |
-| js_crc32    | 360,304 ops/sec   | 23.17 ops/sec        |
+| Impl           | 1024B             | 16611508B, avg 2027B |
+|:---------------|------------------:|---------------------:|
+| sse4_crc32c_hw | 2,356,905 ops/sec | 171 ops/sec          |
+| sse4_crc32c_sw | 987,415 ops/sec   | 67.53 ops/sec        |
+| js_crc32c      | 353,343 ops/sec   | 13.23 ops/sec        |
+| js_crc32       | 345,803 ops/sec   | 13.20 ops/sec        |
 
 ## Install
 

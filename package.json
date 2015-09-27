@@ -9,7 +9,7 @@
   },
   "main": "./loader",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "optionalDependencies": {
     "sse4_crc32": "^4.1.0"

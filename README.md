@@ -1,4 +1,4 @@
-# fast-crc32c [![NPM version](https://badge.fury.io/js/fast-crc32c.png)](http://badge.fury.io/js/fast-crc32c) [![Build Status](https://travis-ci.org/ashi009/node-fast-crc32c.svg?branch=master)](https://travis-ci.org/ashi009/node-fast-crc32c) [![Dependency Status](https://david-dm.org/ashi009/node-fast-crc32c.svg)](https://david-dm.org/ashi009/node-fast-crc32c)
+# fast-crc32c [![NPM version](https://badge.fury.io/js/fast-crc32c.svg)](http://badge.fury.io/js/fast-crc32c) [![Build Status](https://travis-ci.org/ashi009/node-fast-crc32c.svg?branch=master)](https://travis-ci.org/ashi009/node-fast-crc32c) [![Dependency Status](https://david-dm.org/ashi009/node-fast-crc32c.svg)](https://david-dm.org/ashi009/node-fast-crc32c)
 
 fast-crc32c is a CRC-32C algorithm implementation for node.js, which uses
 hardware acceleration (via [voxer/sse4_crc32][sse4_crc32] by Anand Suresh), and

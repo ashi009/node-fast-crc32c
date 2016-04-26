@@ -1,7 +1,7 @@
 {
   "name": "fast-crc32c",
   "description": "CRC32C algorithm with hardware acceleration and software fallback.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Xiaoyi Shi <ashi009@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -30,9 +30,9 @@
     "sse4.2"
   ],
   "devDependencies": {
-    "benchtable": "^0.0.4",
+    "benchtable": "*",
     "blanket": "*",
-    "mocha": "<2.0.0",
+    "mocha": "*",
     "should": "*",
     "travis-cov": "*",
     "buffer-crc32": "*"

@@ -10,7 +10,7 @@
   },
   "main": "./loader",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 5.0"
   },
   "optionalDependencies": {
     "sse4_crc32": "^5.0.0"

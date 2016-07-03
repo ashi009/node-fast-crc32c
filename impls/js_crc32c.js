@@ -73,7 +73,7 @@ var kCRCTable = new Int32Array([
 
 function calculate(buf, initial) {
   if (!Buffer.isBuffer(buf))
-    buf = new Buffer(buf);
+    buf = Buffer.from(buf);
   var crc = (initial | 0) ^ -1;
   for (var i = 0; i < buf.length; i++)
     crc = kCRCTable[(crc ^ buf[i]) & 0xff] ^ (crc >>> 8);

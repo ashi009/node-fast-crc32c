@@ -71,9 +71,13 @@ var kCRCTable = new Int32Array([
   0xbe2da0a5, 0x4c4623a6, 0x5f16d052, 0xad7d5351
 ]);
 
+var hasBufferFrom = typeof Buffer.from === 'function'
+
 function calculate(buf, initial) {
   if (!Buffer.isBuffer(buf))
-    buf = new Buffer(buf);
+    // Check if the newer `Buffer.from` method introduced in Node.js v6 is
+    // available, otherwise fall back to deprecated Buffer constructor.
+    buf = hasBufferFrom ? Buffer.from(buf) : new Buffer(buf);
   var crc = (initial | 0) ^ -1;
   for (var i = 0; i < buf.length; i++)
     crc = kCRCTable[(crc ^ buf[i]) & 0xff] ^ (crc >>> 8);

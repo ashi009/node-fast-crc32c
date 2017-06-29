@@ -9,6 +9,7 @@
     "url": "git://github.com/ashi009/node-fast-crc32c.git"
   },
   "main": "./loader",
+  "browser": "./impls/js_crc32c",
   "engines": {
     "node": ">= 0.10.0"
   },

@@ -5,10 +5,10 @@ var suite = new Benchtable();
 
 var kTesters = [{
   name: 'sse4_crc32c_hw',
-  calculate: require('../impls/sse4_crc32c_hw').calculate
+  calculate: require('sse4_crc32').sse42_crc
 }, {
   name: 'sse4_crc32c_sw',
-  calculate: require('../impls/sse4_crc32c_sw').calculate
+  calculate: require('sse4_crc32').table_crc
 }, {
   name: 'js_crc32c',
   calculate: require('../impls/js_crc32c').calculate

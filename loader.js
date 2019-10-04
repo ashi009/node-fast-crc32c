@@ -1,10 +1,7 @@
-var fs = require('fs');
-
 module.exports = (function(loaders) {
 
 var impls = [
-  './impls/sse4_crc32c_hw',
-  './impls/sse4_crc32c_sw',
+  './impls/sse4_crc32c',
   './impls/js_crc32c'
 ];
 

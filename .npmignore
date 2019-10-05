@@ -1,3 +1,7 @@
+.*
+*.log
+*.yml
+*.md
 benchmark
 coverage
 generate-tests.js

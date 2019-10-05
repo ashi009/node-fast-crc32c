@@ -1,19 +1,21 @@
-module.exports = (function(loaders) {
-
-var impls = [
-  './impls/sse4_crc32c',
-  './impls/js_crc32c'
-];
-
-for (var i = 0; i < impls.length; i++) {
-  try {
-    var crc32 = require(impls[i]);
-    if (crc32.calculate("The quick brown fox jumps over the lazy dog") == 0x22620404)
-      return crc32;
-  } catch(e) {
+module.exports = (function() {
+  const impls = [
+    './impls/sse4_crc32c',
+    './impls/js_crc32c',
+  ];
+  for (const impl of impls) {
+    try {
+      const crc32 = require(impl);
+      if (crc32.calculate('The quick brown fox jumps over the lazy dog') === 0x22620404) {
+        return crc32;
+      }
+    } catch(e) {
+      // ignore the error and try next implementation.
+    }
   }
-}
-
-throw new Error('Failed to find available CRC-32C implementation.');
-
+  return {
+    calculate() {
+      throw new Error('no CRC-32C implementation is available');
+    },
+  };
 })();

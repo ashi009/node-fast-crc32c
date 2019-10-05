@@ -1,7 +1,7 @@
 {
   "name": "fast-crc32c",
   "description": "CRC32C algorithm with hardware acceleration and software fallback.",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "author": "Xiaoyi Shi <ashi009@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -9,16 +9,12 @@
     "url": "git://github.com/ashi009/node-fast-crc32c.git"
   },
   "main": "./loader",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "optionalDependencies": {
     "sse4_crc32": "^6.0.1"
   },
   "scripts": {
-    "test": "mocha",
-    "posttest": "mocha -R travis-cov",
-    "coverage": "mocha -R html-cov > coverage.html",
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "benchmark": "node benchmark"
   },
   "keywords": [
@@ -30,22 +26,12 @@
     "sse4.2"
   ],
   "devDependencies": {
-    "benchtable": "*",
-    "blanket": "*",
-    "buffer-crc32": "*",
-    "mocha": "*",
-    "should": "*",
-    "travis-cov": "*"
-  },
-  "config": {
-    "blanket": {
-      "pattern": [
-        "impls/",
-        "loader.js"
-      ]
-    },
-    "travis-cov": {
-      "threshold": 80
-    }
+    "benchtable": "^0.1.0",
+    "buffer-crc32": "^0.2.13",
+    "coveralls": "^3.0.6",
+    "mocha": "^6.2.1",
+    "nyc": "^14.1.1",
+    "random-string": "^0.2.0",
+    "should": "^13.2.3"
   }
 }

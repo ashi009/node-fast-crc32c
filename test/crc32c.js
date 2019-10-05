@@ -1,7 +1,7 @@
-var sets = require('./sets.json');
+const sets = require('./sets.json');
 
-sets.buffer.tests.forEach(function(test) {
-  test.input = new Buffer(test.input);
+sets.buffer.cases.forEach(function(cs) {
+  cs.input = Buffer.from(cs.input);
 });
 
 describe('crc32c.js', function() {
@@ -14,17 +14,17 @@ describe('fast-crc32c', function() {
 
 function testCalculate(crc32) {
   return function() {
-    for (var type in sets) {
-      var set = sets[type];
-      set.tests.forEach(function(test) {
-        it('should digest ' + JSON.stringify(test.input) + ' as ' + test.output.toString(16), function() {
-          crc32.calculate(test.input).should.eql(test.output);
+    for (const type in sets) {
+      const set = sets[type];
+      set.cases.forEach(function(cs) {
+        it(`should digest "${cs.input}" correctly`, function() {
+          crc32.calculate(cs.input).should.eql(cs.want);
         });
       });
-      it('should digest all ' + type + ' together as ' + set.output.toString(16), function() {
-        set.tests.reduce(function(prev, test) {
-          return crc32.calculate(test.input, prev);
-        }, 0).should.eql(set.output);
+      it(`should digest all ${type} correctly`, function() {
+        set.cases.reduce(function(prev, cs) {
+          return crc32.calculate(cs.input, prev);
+        }, 0).should.eql(set.want);
       })
     }
   };

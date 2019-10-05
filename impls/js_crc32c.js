@@ -4,7 +4,7 @@
  * './pycrc.py --model=crc-32c --generate c --algorithm=table-driven'
  */
 
-var kCRCTable = new Int32Array([
+var kCRCTable = Int32Array.of(
   0x00000000, 0xf26b8303, 0xe13b70f7, 0x1350f3f4,
   0xc79a971f, 0x35f1141c, 0x26a1e7e8, 0xd4ca64eb,
   0x8ad958cf, 0x78b2dbcc, 0x6be22838, 0x9989ab3b,
@@ -68,18 +68,18 @@ var kCRCTable = new Int32Array([
   0xf36e6f75, 0x0105ec76, 0x12551f82, 0xe03e9c81,
   0x34f4f86a, 0xc69f7b69, 0xd5cf889d, 0x27a40b9e,
   0x79b737ba, 0x8bdcb4b9, 0x988c474d, 0x6ae7c44e,
-  0xbe2da0a5, 0x4c4623a6, 0x5f16d052, 0xad7d5351
-]);
-
-function calculate(buf, initial) {
-  if (!Buffer.isBuffer(buf))
-    buf = new Buffer(buf);
-  var crc = (initial | 0) ^ -1;
-  for (var i = 0; i < buf.length; i++)
-    crc = kCRCTable[(crc ^ buf[i]) & 0xff] ^ (crc >>> 8);
-  return (crc ^ -1) >>> 0;
-}
+  0xbe2da0a5, 0x4c4623a6, 0x5f16d052, 0xad7d5351,
+);
 
 module.exports = {
-  calculate: calculate
+  calculate(buf, initial) {
+    if (!Buffer.isBuffer(buf)) {
+      buf = Buffer.from(buf);
+    }
+    let crc = (initial | 0) ^ -1;
+    for (let i = 0; i < buf.length; i++) {
+      crc = kCRCTable[(crc ^ buf[i]) & 0xff] ^ (crc >>> 8);
+    }
+    return (crc ^ -1) >>> 0;
+  },
 };

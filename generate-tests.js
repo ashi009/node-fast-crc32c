@@ -1,55 +1,53 @@
-var rndstr = require('random-string');
-var fs = require('fs');
-var crc32 = require('sse4_crc32').calculate;
+const rndstr = require('random-string');
+const fs = require('fs');
+const crc32 = require('sse4_crc32').calculate;
 
-var tests = {
+const tests = {
   string: {
-    tests: []
+    cases: [],
   },
   buffer: {
-    tests: []
+    cases: [],
   }
 };
 
-for (var i = 0; i < 10; i++) {
-  var str = rndstr({
+for (let i = 0; i < 10; i++) {
+  const str = rndstr({
     length: 1024,
-    // numeric: true,
-    // letters: true,
-    // // special: true
   });
-  tests.string.tests.push({
+  tests.string.cases.push({
     input: str,
-    output: crc32(str)
+    want: crc32(str)
   });
 }
 
-for (var i = 0; i < 10; i++) {
-  var buf = new Buffer(1024);
-  for (var j = 0; j < 1024; j++)
+for (let i = 0; i < 10; i++) {
+  const buf = Buffer.alloc(1024);
+  for (let j = 0; j < 1024; j++) {
     buf.writeUInt8(parseInt(Math.random() * 256), j);
-  tests.buffer.tests.push({
+  }
+  tests.buffer.cases.push({
     input: buf,
-    output: crc32(buf)
+    want: crc32(buf)
   });
 }
 
-var strs = ['', '\0'];
+const strs = ['', '\0'];
 strs.forEach(function(str) {
-  tests.string.tests.push({
+  tests.string.cases.push({
     input: str,
-    output: crc32(str)
+    want: crc32(str),
   });
-  var buf = new Buffer(str);
-  tests.buffer.tests.push({
+  const buf = Buffer.from(str, 'utf-8');
+  tests.buffer.cases.push({
     input: buf,
-    output: crc32(buf)
+    want: crc32(buf),
   });
 });
 
-for (var type in tests) {
-  tests[type].output = tests[type].tests.reduce(function(prev, test) {
-    return crc32(test.input, prev);
+for (const type in tests) {
+  tests[type].want = tests[type].cases.reduce(function(prev, cs) {
+    return crc32(cs.input, prev);
   }, 0);
 }
 

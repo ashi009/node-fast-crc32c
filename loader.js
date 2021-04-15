@@ -1,11 +1,10 @@
+const sse4_crc32c = require('./impls/sse4_crc32c');
+const js_crc32c = require('./impls/js_crc32c');
+
 module.exports = (function() {
-  const impls = [
-    './impls/sse4_crc32c',
-    './impls/js_crc32c',
-  ];
-  for (const impl of impls) {
+  const impls = [sse4_crc32c, js_crc32c];
+  for (const crc32 of impls) {
     try {
-      const crc32 = require(impl);
       if (crc32.calculate('The quick brown fox jumps over the lazy dog') === 0x22620404) {
         return crc32;
       }

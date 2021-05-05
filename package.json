@@ -10,6 +10,7 @@
   },
   "main": "./loader",
   "optionalDependencies": {
+    "@node-rs/crc32": "^1.1.0",
     "sse4_crc32": "^6.0.1"
   },
   "scripts": {

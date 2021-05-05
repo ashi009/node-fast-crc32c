@@ -1,6 +1,9 @@
 module.exports = (function() {
+  const os = require('os');
+  const isX86 = new Set(['ia32', 'x32', 'x64']).has(os.arch());
   const impls = [
-    './impls/sse4_crc32c',
+    ...(isX86 ? ['./impls/sse4_crc32c'] : []),
+    './impls/rs_crc32c',
     './impls/js_crc32c',
   ];
   for (const impl of impls) {

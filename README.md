@@ -58,6 +58,7 @@ var result = crc32.calculate(data, initial);
 
 - **data** required, String|Buffer, data to digest
 - **initial** optional, Number, initial CRC-32C digest
+- **result** Number
 
 [sse4_crc32]: https://github.com/Voxer/sse4_crc32
 [buffer-crc32]: https://github.com/brianloveswords/buffer-crc32
